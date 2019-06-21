@@ -1,4 +1,4 @@
-optiPar<-function (ts1, ts2, par, min.rec = 2, max.rec = 5, maxEmbed = 8)
+optiPar<-function (ts1, ts2, par, min.rec = 2, max.rec = 5, maxEmbed = 10)
 {
   maxEmbed = maxEmbed
 
@@ -11,7 +11,7 @@ optiPar<-function (ts1, ts2, par, min.rec = 2, max.rec = 5, maxEmbed = 8)
   }
   for (v in 1:length(par)) assign(names(par)[v], par[[v]])
   if (radiusspan <= 1) {
-    stop("Radius span too small, please choose a larger value")
+    #stop("Radius span too small, please choose a larger value")
   }
 
   mi1 = mutual(ts1, lag.max = lgM, plot = FALSE)
@@ -39,8 +39,8 @@ optiPar<-function (ts1, ts2, par, min.rec = 2, max.rec = 5, maxEmbed = 8)
   }
 
   if (length(lag1) == 0 | length(lag2) == 0){
-    stop("Please try varying maximum lag (and/or step size):
-         minimal mutual information was not reached")
+    #stop("Please try varying maximum lag (and/or step size):
+         #minimal mutual information was not reached")
     del = 0
   }
 
